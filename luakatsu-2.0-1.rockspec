@@ -1,9 +1,17 @@
+-- This file was automatically generated for the LuaDist project.
+
 package = "luakatsu"
 version = "2.0-1"
+-- LuaDist source
 source = {
-   url = "git://github.com/Nymphium/luakatsu",
-   tag = "v2.0"
+  tag = "2.0-1",
+  url = "git://github.com/LuaDist-testing/luakatsu.git"
 }
+-- Original source
+-- source = {
+--    url = "git://github.com/Nymphium/luakatsu",
+--    tag = "v2.0"
+-- }
 description = {
    summary = "Aikatsu! --- Idol KATSUDOU, with Lua",
    detailed = "Let's Aikatsu! with Lua!!",
