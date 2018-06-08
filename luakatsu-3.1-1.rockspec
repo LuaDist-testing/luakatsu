@@ -1,16 +1,16 @@
 -- This file was automatically generated for the LuaDist project.
 
 package = "luakatsu"
-version = "3.0-1"
+version = "3.1-1"
 -- LuaDist source
 source = {
-  tag = "3.0-1",
+  tag = "3.1-1",
   url = "git://github.com/LuaDist-testing/luakatsu.git"
 }
 -- Original source
 -- source = {
 --    url = "git://github.com/Nymphium/luakatsu/",
---    tag = "v3.0"
+--    tag = "v3.1"
 -- }
 description = {
    summary = "Aikatsu! --- Idol KATSUDOU, with Lua",
