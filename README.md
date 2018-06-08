@@ -1,11 +1,7 @@
-# luakatsu (Lua + Aikatsu) v4.0
-[Rubicure](https://github.com/sue445/rubicure) is **Ruby + Precure**, This is **Lua + [Aikastu](http://aikatsu.wikia.com/wiki/Aikatsu_Wiki)**
+# luakatsu (Lua + Aikastu) v1.2-0
+[Rubicure](https://github.com/sue445/rubicure) is **Ruby + Precure**, it is **Lua + [Aikastu](http://aikatsu.wikia.com/wiki/Aikatsu_Wiki)**
 
 ## install
-`luarocks --local install luakatsu`
-
-or
-
 `luarocks --local --from=https://github.com/Nymphium/luakatsu/raw/master/ install luakatsu`
 
 or
@@ -16,9 +12,16 @@ cd luakatsu
 luarocks --local make
 ```
 
+latest(unsafe)
+`luarocks --local --from=https://github.com/Nymphium/luakatsu/raw/dev install luakatsu`
 
-## compatibility
-After v1.3, non-idol characters' data are none here.  And catchphrases are not supported.
+### each versions
+`luarocks --local --from=https://github.com/Nymphium/luakatsu/raw/*VERSION* install luakatsu`
+
+#### example(v1.0-0)
+
+`luarocks --local --from=https://github.com/Nymphium/luakatsu/raw/v1.0-0 install luakatsu`
+
 
 ## usage
 ```
@@ -28,46 +31,29 @@ $ lua
 > print(type(Aikatsu))
 table
 > print(Aikatsu.version)
-v4.0
-```
-
-### local table (`version >= v2.1-1`)
-`local luakatsu = require "luakatsu.local"`
-
-### `Aikatsu:find_birthday()` (`version >= v3.0-1`)
-
-```lua
-Aikatsu:find_birthday("12/03")
---> returns Kii
-```
-
-#### one-liner
-```sh
-lua -luakatsu -e "for m = 1, 12 do for d = 1, 31 do (function(x) return x and print(x.name, x.birthday) end)(Aikatsu:find_birthday(([[%02d/%02d]]):format(m,d))) end end"
+v1.2-0
 ```
 
 ### profile
 
 ```lua
-print(Aikatsu.Akari.name) ---> 大空 あかり
+print(Aikatsu.Ichigo.name) ---> 星宮 いちご
 
-print(type(Aikatsu.Akari.signature_songs) == 'table' and table.concat(Aikatsu.Akari.signature_songs, ', ') or Aikatsu.Akari.signature_songs) ---> Blooming♡Blooming
+print(table.concat(Aikastu.Ichigo.signature_songs), ", ") ---> 輝きのエチュード, Growing for a dream, Dance in the rain
 
-Aikatsu.Akari()
+Aikatsu.Ichigo()
 
 --[[
-name	大空 あかり
-actor	下地 柴野
-birthday	04/01
-zodiac_sign	Aries
-blood_type	A
-favorite_foods	スイカ, チョコレート, ドーナツ, みかん, カレー
-special_ablity	ものまね
-favorite_brand	Dreamy Crown
+name	星宮 いちご
+actor	諸星 すみれ
+birtyday	3/15
+zodiac_sign	Picces
+blood_type	O
+favorite_brand	Angely Sugar
 type	Cute
-signature_songs	Blooming♡Blooming
-sing	遠藤 瑠香
-affilication	GOGO! いちご応援隊, Skips♪, Luminas, Luminas
+signature_songs	輝きのエチュード, Growing for a dream, Dance in the rain
+sing	霧島 若歌
+belonging_to	Soleil,STAR☆ANIS,2wingS
 school	スターライト学園
 --]]
 
@@ -75,12 +61,34 @@ school	スターライト学園
 
 ### groups
 ```lua
-Aikatsu.groups.Luminas()
+Aikatsu.groups[1]()
 
 --[[
-name	Luminas
-members	大空 あかり, 氷上 スミレ, 新条 ひなき
-songs	リルビーリルウィン♪
+name	Soleil
+members	星宮 いちご, 霧矢 あおい, 紫吹 蘭
+songs	ダイヤモンドハッピー
+--]]
+```
+
+### catchphrase
+```lua
+for _, i in pairs(Aikatsu) do
+	local p = i.catchphrase
+
+	if p then print(p) end
+end
+
+--[[
+穏やかじゃない!
+らぶゆ〜♡
+血を吸うわよ!
+まぶしっ…
+おつかー!
+私を見て!
+ラララーな感じだな｡
+オケオケオッケー!
+クルクルキャワワ
+ぱんぱかぱーん!
 --]]
 ```
 
