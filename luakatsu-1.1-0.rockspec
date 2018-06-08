@@ -1,16 +1,15 @@
 -- This file was automatically generated for the LuaDist project.
 
 package = "luakatsu"
-version = "1.0-1"
+version = "1.1-0"
 -- LuaDist source
 source = {
-  tag = "1.0-1",
+  tag = "1.1-0",
   url = "git://github.com/LuaDist-testing/luakatsu.git"
 }
 -- Original source
 -- source = {
--- 	url = "git://github.com/Nymphium/luakatsu",
--- 	tag = "v1.0-1"
+-- 	url = "git://github.com/Nymphium/luakatsu"
 -- }
 description = {
 	summary = "Aikatsu! --- Idol KATSUDOU, with Lua",
@@ -30,9 +29,7 @@ build = {
 		luakatsu = "luakatsu.lua",
 		uakatsu = "uakatsu.lua",
 		['luakatsu.bin.char_setmeta'] = "luakatsu/bin/char_setmeta.lua",
-		['luakatsu.bin.which_school'] = "luakatsu/bin/which_school.lua",
 		['luakatsu.lib.characters.idols'] = "luakatsu/lib/characters/idols.lua",
 		['luakatsu.lib.characters.others'] = "luakatsu/lib/characters/others.lua",
-		['luakatsu.lib.groups.groups'] = "luakatsu/lib/groups/groups.lua",
 	}
 }
