@@ -16,14 +16,12 @@ local printprof = function(prof)
 			if type(val[1]) == "table" then
 				local t = {}
 
-				for _, name in pairs(val) do
-					table.insert(t, name.name)
-				end
+				for _, name in pairs(val) do table.insert(t, name.name) end
 
-				val = table.concat(t, ", ")
-			else
-				val = table.concat(val, ", ")
+				val = t
 			end
+
+			val = table.concat(val, ", ")
 		end
 
 		if key and val then
@@ -37,13 +35,17 @@ local mkprofmt = function(prof)
 
 	for key, val in prof_iter(prof) do
 		mt[key] = val
+		
+		if type(val) == "table" then
+			setmetatable(mt[key], {__call = function() printprof(val) end})
+		end
+		
 	end
 
 	return mt
 end
 
-
-return function(t)
+local makemt = function(t)
 	local index = {}
 	local ret = {}
 
@@ -57,4 +59,6 @@ return function(t)
 
 	return setmetatable(ret, {__index = index})
 end
+
+return makemt
 
