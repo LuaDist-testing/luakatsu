@@ -1,3 +1,5 @@
+#!/usr/bin/env lua
+
 local cfg = require("luarocks.cfg")
 local manif = require("luarocks.manif")
 
